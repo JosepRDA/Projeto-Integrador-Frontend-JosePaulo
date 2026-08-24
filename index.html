@@ -7,28 +7,124 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
+        <img src="assets/images/c-plus-plus-logo.jpg" alt="Ícone da linguagem C++" width="100" height="100">
         <h1>Embedded Wiki</h1>
-        <p>Reunir informacoes acerca do desenvolvimento de baixo nivel.</p>
+        <p>Uma wiki colaborativa sobre desenvolvimento de baixo nível e sistemas embarcados.</p>
 
-        <ul>
-            <li>Sistemas embarcados</li>
-            <li>Baixo nivel</li>
-            <li>C/C++</li>
-        </ul>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#kernel">Kernel/OS Dev</a></li>
+                    <li><a href="#rtos">RTOS</a></li>
+                    <li><a href="#microcontroladores">Microcontroladores</a></li>
+                    <li><a href="#protocolos">Protocolos</a></li>
+                    <li><a href="#sugerir">Sugerir verbete</a></li>
+                </ul>
+            </nav>
+        </header>
 
-        <table>
-            <tr>
-                <td>UART</td>
-                <td>LED</td>
-            </tr>
-            <tr>
-                <td</td>
-                <td>Item exemplo</td>
-            </tr>
-        </table>
+        <main>
 
-        <a href="https://osdev.wiki", target="_blank", rel="noopener noreferrer">Uma fonte externa relevante</a>
+            <section id="kernel">
+                <h2>Kernel / OS Dev</h2>
+                <p>Fundamentos de escrita de sistemas operacionais: como um kernel inicializa, gerencia recursos e expõe serviços para o espaço de usuário.</p>
+                <ul>
+                    <li>Kernel monolítico vs microkernel</li>
+                    <li>Bootloaders e o processo de boot</li>
+                    <li>Gerenciamento de memória e paginação</li>
+                    <li>Chamadas de sistema (syscalls)</li>
+                </ul>
+                <p>
+                    <a href="https://osdev.wiki" target="_blank" rel="noopener noreferrer">OSDev Wiki</a> — referência externa usada como inspiração para este projeto.
+                </p>
+            </section>
+ 
+            <section id="rtos">
+                <h2>RTOS</h2>
+                <p>Sistemas operacionais de tempo real, focados em previsibilidade e resposta dentro de prazos rígidos.</p>
+                <ul>
+                    <li>Escalonamento preemptivo vs cooperativo</li>
+                    <li>Sincronização entre tarefas (mutexes, semáforos)</li>
+                    <li>Comunicação entre processos (IPC)</li>
+                    <li>FreeRTOS, Zephyr e outros RTOS populares</li>
+                </ul>
+            </section>
+ 
+            <section id="microcontroladores">
+                <h2>Microcontroladores</h2>
+                <p>Periféricos e conceitos de hardware comuns ao programar para MCUs.</p>
+                <table>
+                    <tr>
+                        <th scope="col">Periférico</th>
+                        <th scope="col">Descrição</th>
+                    </tr>
+                    <tr>
+                        <td>UART</td>
+                        <td>Comunicação serial assíncrona ponto a ponto</td>
+                    </tr>
+                    <tr>
+                        <td>GPIO</td>
+                        <td>Pinos de entrada e saída de uso geral</td>
+                    </tr>
+                </table>
+            </section>
+ 
+            <section id="protocolos">
+                <h2>Protocolos</h2>
+                <p>Protocolos de comunicação usados entre microcontroladores e periféricos.</p>
+                <ul>
+                    <li>UART</li>
+                    <li>SPI</li>
+                    <li>I2C</li>
+                    <li>CAN</li>
+                </ul>
+            </section>
+ 
+            <section id="sugerir">
+                <h2>Sugerir um novo verbete</h2>
+                <form>
+                    <fieldset>
+                        <legend>Dados do novo verbete</legend>
+ 
+                        <div>
+                            <label for="termo">Nome do termo</label>
+                            <input type="text" id="termo" name="termo" required>
+                        </div>
+ 
+                        <div>
+                            <label for="categoria">Categoria</label>
+                            <select id="categoria" name="categoria" required>
+                                <option value="">Selecione...</option>
+                                <option value="kernel">Kernel/OS Dev</option>
+                                <option value="rtos">RTOS</option>
+                                <option value="microcontroladores">Microcontroladores</option>
+                                <option value="protocolos">Protocolos</option>
+                            </select>
+                        </div>
+ 
+                        <div>
+                            <label for="email">Seu e-mail</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+ 
+                        <div>
+                            <label for="prioridade">Prioridade sugerida (1 a 5)</label>
+                            <input type="number" id="prioridade" name="prioridade" min="1" max="5">
+                        </div>
+ 
+                        <div>
+                            <label for="descricao">Descrição do verbete</label>
+                            <textarea id="descricao" name="descricao" rows="4"></textarea>
+                        </div>
+ 
+                        <button type="submit">Enviar sugestão</button>
+                    </fieldset>
+                </form>
+            </section>
+        </main>
 
-        <img src="/assets/images/c-plus-plus-logo.jpg" alt="icone do C++" width="300px" height="300px">
+        <footer>
+            <p>Embedded Wiki — Projeto Integrador, Desenvolvimento Front-end para Web.</p>
+        </footer>
     </body>
 </html>
