@@ -1,6 +1,9 @@
 :root {
-    background-color: #20202f;
     max-width: 1024px;
+}
+
+main {
+    align-content: center;
 }
 
 h1 { 
