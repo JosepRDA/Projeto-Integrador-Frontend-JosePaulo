@@ -35,11 +35,40 @@
                     <li>Chamadas de sistema (syscalls)</li>
                 </ul>
                 <p>Exemplo de Kernel monolitico iniciando</p>
-                <video width="480" height="270" controls muted>
-                    <source src="assets/videos/PrismOS.webm" type="video/webm">
+                <video 
+                    id="prismovid" 
+                    width="480" 
+                    height="270" 
+                    preload="metadata" 
+                    poster="assets/images/PrismOS-poster.jpg" 
+                    controls muted
+                >
+                    <!-- 
+                        Explicando escolha de modo do preload metadata:
+                        O video tem audio que eh inutil para o usuario. Um dos metadados eh o control para muta-lo
+                        "controls muted". Dessa forma, quando a pagina carregar, essas informacoes serao mantidas primeiro,
+                        evitando que a pagina se comporte da maneira errada. 
+                    -->
+                    <!-- mp4 + webm -->
+                    <source 
+                        src="assets/videos/PrismOS.mp4" 
+                        type="video/mp4"
+                    >
+                    <source 
+                        src="assets/videos/PrismOS.webm" 
+                        type="video/webm"
+                    >
+                    <!-- minha legenda -->
+                    <track 
+                        src="assets/subtitles/PrismOS.vtt" 
+                        kind="subtitles" 
+                        srclang="pt-BR" 
+                        label="Portugues (Brasil)"
+                        default
+                    >
                     <p>
                     Seu navegador não suporta o elemento de vídeo. 
-                    <a href="assets/videos/PrismOS.webm">Baixe o vídeo</a>.
+                    <a href="assets/videos/PrismOS.mp4">Baixe o vídeo</a>.
                     </p>
                 </video>
                 <p>
