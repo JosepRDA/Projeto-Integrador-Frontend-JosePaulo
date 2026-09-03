@@ -9,118 +9,242 @@
     <body>
         <img src="assets/images/c-plus-plus-logo.jpg" alt="Ícone da linguagem C++" width="100" height="100">
         <h1>Embedded Wiki</h1>
-        <p>Uma wiki colaborativa sobre desenvolvimento de baixo nível e sistemas embarcados.</p>
+        <p>Desenvolvimento de baixo nivel e sistemas embarcados</p>
 
         <header>
             <nav>
                 <ul>
-                    <li><a href="#kernel">Kernel/OS Dev</a></li>
-                    <li><a href="#rtos">RTOS</a></li>
-                    <li><a href="#microcontroladores">Microcontroladores</a></li>
-                    <li><a href="#protocolos">Protocolos</a></li>
-                    <li><a href="#sugerir">Sugerir verbete</a></li>
+                    <h2>Para o iniciante</h2>
+                    <li>Pre-requisitos</li>
+                    <li>Livros indicados</li>
+                    <li>Conteudos adicionais</li>
+                </ul>
+                <ul>
+                    <h2>Sistemas Operacionais</h2>
+                    <li><a href="kernel/">Kernel/OS Dev</a></li>
+                    <li><a href="rtos/">RTOS</a></li>
+                </ul>
+                <ul>
+                    <h2>Hardware</h2>
+                    <li><a href="mcus/">Microcontroladores</a></li>
+                    <li><a href="protocolos/">Protocolos</a></li>
+                </ul>
+                <ul>
+                    <h2>Para onde ir?</h2>
                 </ul>
             </nav>
         </header>
 
         <main>
 
-            <section id="kernel">
-                <h2>Kernel / OS Dev</h2>
-                <p>Fundamentos de escrita de sistemas operacionais: como um kernel inicializa, gerencia recursos e expõe serviços para o espaço de usuário.</p>
-                <ul>
-                    <li>Kernel monolítico vs microkernel</li>
-                    <li>Bootloaders e o processo de boot</li>
-                    <li>Gerenciamento de memória e paginação</li>
-                    <li>Chamadas de sistema (syscalls)</li>
-                </ul>
-                <p>Exemplo de Kernel monolitico iniciando</p>
-                <video 
-                    width="480" 
-                    height="270" 
-                    preload="metadata" 
-                    poster="assets/images/PrismOS-poster.jpg" 
-                    controls muted
-                >
-                    <!-- 
-                        Explicando escolha de modo do preload metadata:
-                        O video tem audio que eh inutil para o usuario. Um dos metadados eh o control para muta-lo
-                        "controls muted". Dessa forma, quando a pagina carregar, essas informacoes serao mantidas primeiro,
-                        evitando que a pagina se comporte da maneira errada. 
-                    -->
-                    <!-- mp4 + webm -->
-                    <source 
-                        src="assets/videos/PrismOS.mp4" 
-                        type="video/mp4"
-                    >
-                    <source 
-                        src="assets/videos/PrismOS.webm" 
-                        type="video/webm"
-                    >
-                    <!-- minha legenda -->
-                    <track 
-                        src="assets/subtitles/PrismOS.vtt" 
-                        kind="subtitles" 
-                        srclang="pt-BR" 
-                        label="Portugues (Brasil)"
-                        default
-                    >
-                    <p>
-                    Seu navegador não suporta o elemento de vídeo. 
-                    <a href="assets/videos/PrismOS.mp4">Baixe o vídeo</a>.
-                    </p>
-                </video>
-                <p>
-                    <a href="https://osdev.wiki" target="_blank" rel="noopener noreferrer">OSDev Wiki</a> — referência externa usada como inspiração para este projeto.
-                </p>
-            </section>
- 
-            <section id="rtos">
-                <h2>RTOS</h2>
-                <p>Sistemas operacionais de tempo real, focados em previsibilidade e resposta dentro de prazos rígidos.</p>
-            </section>
- 
-            <section id="microcontroladores">
-                <h2>Microcontroladores</h2>
-                <p>Periféricos e conceitos de hardware comuns ao programar para MCUs.</p>
-                <table>
-                    <tr>
-                        <th scope="col">Periférico</th>
-                        <th scope="col">Descrição</th>
-                    </tr>
-                    <tr>
-                        <td>UART</td>
-                        <td>Comunicação serial assíncrona ponto a ponto</td>
-                    </tr>
-                    <tr>
-                        <td>GPIO</td>
-                        <td>Pinos de entrada e saída de uso geral</td>
-                    </tr>
-                </table>
-            </section>
- 
-            <section id="protocolos">
-                <h2>Protocolos</h2>
-                <p>Protocolos de comunicação usados entre microcontroladores e periféricos.</p>
-                <ul>
-                    <li>UART</li>
-                    <li>SPI</li>
-                    <li>I2C</li>
-                    <li>CAN</li>
-                </ul>
-            </section>
- 
+ <!--            <section id="kernel"> -->
+ <!--                <h2>Kernel / OS Dev</h2> -->
+ <!--                <p>Fundamentos de escrita de sistemas operacionais: como um kernel inicializa, gerencia recursos e expõe serviços para o espaço de usuário.</p> -->
+ <!--                <ul> -->
+ <!--                    <li>Kernel monolítico vs microkernel</li> -->
+ <!--                    <li>Bootloaders e o processo de boot</li> -->
+ <!--                    <li>Gerenciamento de memória e paginação</li> -->
+ <!--                    <li>Chamadas de sistema (syscalls)</li> -->
+ <!--                </ul> -->
+ <!--                <p>Exemplo de Kernel monolitico iniciando</p> -->
+
+ <!--                <p> -->
+ <!--                    <a href="https://osdev.wiki" target="_blank" rel="noopener noreferrer">OSDev Wiki</a> — referência externa usada como inspiração para este projeto. -->
+ <!--                </p> -->
+ <!--            </section> -->
+ <!---->
+ <!--            <section id="rtos"> -->
+ <!--                <h2>RTOS</h2> -->
+ <!--                <p>Sistemas operacionais de tempo real, focados em previsibilidade e resposta dentro de prazos rígidos.</p> -->
+ <!--            </section> -->
+ <!---->
+ <!--            <section id="microcontroladores"> -->
+ <!--                <h2>Microcontroladores</h2> -->
+ <!--                <p>Periféricos e conceitos de hardware comuns ao programar para MCUs.</p> -->
+ <!-- <!-- <td>Estrutura de um microcontrolador 8-bit (arquitetura Harvard)</td> --> -->
+ <!--                <svg -->
+ <!--                    id="mcu" -->
+ <!--                    width="800" -->
+ <!--                    height="500" -->
+ <!--                    viewBox="0 0 800 500" -->
+ <!--                    xmlns="http://www.w3.org/2000/svg" -->
+ <!--                > -->
+ <!--                <!-- MCU --> -->
+ <!--                <rect -->
+ <!--                    id="mcu-body" -->
+ <!--                    x="50" -->
+ <!--                    y="50" -->
+ <!--                    width="700" -->
+ <!--                    height="400" -->
+ <!--                    rx="20" -->
+ <!--                    fill="#1e1e1e" -->
+ <!--                    stroke="#ffffff" -->
+ <!--                    stroke-width="2" -->
+ <!--                /> -->
+ <!---->
+ <!--                <!-- CPU --> -->
+ <!--                <rect -->
+ <!--                    id="cpu" -->
+ <!--                    x="100" -->
+ <!--                    y="120" -->
+ <!--                    width="250" -->
+ <!--                    height="180" -->
+ <!--                    rx="10" -->
+ <!--                    fill="#333333" -->
+ <!--                    stroke="#ffffff" -->
+ <!--                    stroke-width="2" -->
+ <!--                /> -->
+ <!---->
+ <!--                <line -->
+ <!--                   id="bus-Memoria" -->
+ <!--                   x1="350" -->
+ <!--                   y1="170" -->
+ <!--                   x2="450" -->
+ <!--                   y2="170" -->
+ <!--                   stroke="white" -->
+ <!--                   stroke-width="3" -->
+ <!--                />                            -->
+ <!--                <text -->
+ <!--                    x="225" -->
+ <!--                    y="150" -->
+ <!--                    text-anchor="middle" -->
+ <!--                    fill="white" -->
+ <!--                    font-size="20" -->
+ <!--                > -->
+ <!--                    CPU -->
+ <!--                </text> -->
+ <!---->
+ <!--                <!-- Registradores --> -->
+ <!--                <rect -->
+ <!--                    id="Registradores" -->
+ <!--                    x="120" -->
+ <!--                    y="175" -->
+ <!--                    width="100" -->
+ <!--                    height="90" -->
+ <!--                    fill="#222222" -->
+ <!--                    stroke="#ffffff" -->
+ <!--                /> -->
+ <!---->
+ <!--                <text x="170" y="200" text-anchor="middle" fill="white"> -->
+ <!--                    Registradores -->
+ <!--                </text> -->
+ <!---->
+ <!--                <!-- ALU --> -->
+ <!--                <rect -->
+ <!--                    id="alu" -->
+ <!--                    x="235" -->
+ <!--                    y="175" -->
+ <!--                    width="90" -->
+ <!--                    height="90" -->
+ <!--                    fill="#222222" -->
+ <!--                    stroke="#ffffff" -->
+ <!--                /> -->
+ <!---->
+ <!--                <text x="280" y="225" text-anchor="middle" fill="white"> -->
+ <!--                    ALU -->
+ <!--                </text> -->
+ <!---->
+ <!--                <!-- Memoria --> -->
+ <!--                <rect -->
+ <!--                    id="Memoria" -->
+ <!--                    x="450" -->
+ <!--                    y="120" -->
+ <!--                    width="220" -->
+ <!--                    height="100" -->
+ <!--                    rx="10" -->
+ <!--                    fill="#333333" -->
+ <!--                    stroke="#ffffff" -->
+ <!--                    stroke-width="2" -->
+ <!--                /> -->
+ <!---->
+ <!--                <text -->
+ <!--                    x="560" -->
+ <!--                    y="155" -->
+ <!--                    text-anchor="middle" -->
+ <!--                    fill="white" -->
+ <!--                    font-size="20" -->
+ <!--                > -->
+ <!--                    Memoria -->
+ <!--                </text> -->
+ <!--                <line -->
+ <!--                    id="bus-gpio" -->
+ <!--                    x1="350" -->
+ <!--                    y1="250" -->
+ <!--                    x2="450" -->
+ <!--                    y2="310" -->
+ <!--                    stroke="white" -->
+ <!--                    stroke-width="3" -->
+ <!--                /> -->
+ <!--                <polygon -->
+ <!--                    points="445,165 455,170 445,175" -->
+ <!--                    fill="white" -->
+ <!--                /> -->
+ <!--                <!-- GPIO --> -->
+ <!--                <rect -->
+ <!--                    id="gpio" -->
+ <!--                    x="450" -->
+ <!--                    y="270" -->
+ <!--                    width="220" -->
+ <!--                    height="80" -->
+ <!--                    rx="10" -->
+ <!--                    fill="#333333" -->
+ <!--                    stroke="#ffffff" -->
+ <!--                    stroke-width="2" -->
+ <!--                /> -->
+ <!---->
+ <!--                <text -->
+ <!--                    x="560" -->
+ <!--                    y="318" -->
+ <!--                    text-anchor="middle" -->
+ <!--                    fill="white" -->
+ <!--                    font-size="20" -->
+ <!--                > -->
+ <!--                    GPIO -->
+ <!--                </text> -->
+ <!--            </svg> -->
+ <!--                <script src="js/cpu.js"> -->
+ <!--                </script> -->
+ <!---->
+ <!--                <table> -->
+ <!--                    <tr> -->
+ <!--                        <th scope="col">Periférico</th> -->
+ <!--                        <th scope="col">Descrição</th> -->
+ <!--                    </tr> -->
+ <!--                    <tr> -->
+ <!--                                           </tr> -->
+ <!--                    <tr> -->
+ <!--                        <td>UART</td> -->
+ <!--                        <td>Comunicação serial assíncrona ponto a ponto</td> -->
+ <!--                    </tr> -->
+ <!--                    <tr> -->
+ <!--                        <td>GPIO</td> -->
+ <!--                        <td>Pinos de entrada e saída de uso geral</td> -->
+ <!--                    </tr> -->
+ <!--                </table> -->
+ <!--            </section> -->
+ <!---->
+ <!--            <section id="protocolos"> -->
+ <!--                <h2>Protocolos</h2> -->
+ <!--                <p>Protocolos de comunicação usados entre microcontroladores e periféricos.</p> -->
+ <!--                <ul> -->
+ <!--                    <li>UART</li> -->
+ <!--                    <li>SPI</li> -->
+ <!--                    <li>I2C</li> -->
+ <!--                    <li>CAN</li> -->
+ <!--                </ul> -->
+ <!--            </section> -->
+ <!---->
             <section id="sugerir">
                 <h2>Sugerir um novo verbete</h2>
                 <form>
                     <fieldset>
                         <legend>Dados do novo verbete</legend>
- 
+
                         <div>
                             <label for="termo">Nome do termo</label>
                             <input type="text" id="termo" name="termo" required>
                         </div>
- 
+
                         <div>
                             <label for="categoria">Categoria</label>
                             <select id="categoria" name="categoria" required>
@@ -131,29 +255,30 @@
                                 <option value="protocolos">Protocolos</option>
                             </select>
                         </div>
- 
+
                         <div>
                             <label for="email">Seu e-mail</label>
                             <input type="email" id="email" name="email" required>
                         </div>
- 
+
                         <div>
                             <label for="prioridade">Prioridade sugerida (1 a 5)</label>
                             <input type="number" id="prioridade" name="prioridade" min="1" max="5">
                         </div>
- 
+
                         <div>
                             <label for="descricao">Descrição do verbete</label>
                             <textarea id="descricao" name="descricao" rows="4"></textarea>
                         </div>
- 
+
                         <button type="submit">Enviar sugestão</button>
                     </fieldset>
                 </form>
             </section>
         </main>
-
+ <!---->
         <footer>
+            <p><a href="https://osdev.wiki">OSDev.wiki</a> - Inspiracao para o projeto</p>
             <p>Embedded Wiki — Projeto Integrador, Desenvolvimento Front-end para Web.</p>
         </footer>
     </body>
