@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>GPIO e interrupcoes</title>
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>GPIO e interrupções</h1>
+            <p>Pinos GPIO (General Purpose Input/Output) podem ser configurados como entrada ou saída digital, sendo a forma mais direta de conectar o microcontrolador a periféricos simples como LEDs, botões e relés.</p>
+
+            <h2>Funcionamento</h2>
+            <h3>Configuração de pinos</h3>
+            <p>Cada pino GPIO é controlado por registradores que definem sua direção (entrada ou saída), o uso de resistor de pull-up/pull-down, a corrente de acionamento e, em muitos casos, uma função alternativa — já que o mesmo pino físico costuma ser compartilhado entre GPIO comum e um periférico como UART ou SPI.</p>
+
+            <h3>Interrupções externas</h3>
+            <p>Em vez de verificar continuamente o estado de um pino em um laço (polling), o microcontrolador pode configurar uma interrupção associada a uma borda de sinal (subida, descida ou ambas). Quando o evento ocorre, a CPU interrompe o fluxo normal de execução e desvia para uma rotina de tratamento de interrupção (ISR), respondendo ao evento sem gastar ciclos verificando o pino o tempo todo.</p>
+            <!-- todo: diagrama de configuracao de pino e fluxo de ISR -->
+
+            <h2>Vantagens e desvantagens</h2>
+            <h3>Vantagens</h3>
+            <ul>
+                <li>Interrupções reduzem consumo de energia e tempo de resposta comparado a polling contínuo</li>
+                <li>Permitem lidar com múltiplos eventos assíncronos sem travar o programa principal</li>
+            </ul>
+            <h3>Desvantagens</h3>
+            <ul>
+                <li>ISRs longas ou bloqueantes atrasam outras interrupções e degradam a responsividade do sistema</li>
+                <li>Código orientado a interrupções é mais difícil de depurar do que um fluxo sequencial simples</li>
+            </ul>
+
+            <h2>Ver também</h2>
+            <ul>
+                <li><a href="../arquitetura-perifericos/">Arquitetura e periféricos</a></li>
+                <li><a href="../timers-pwm/">Timers e PWM</a></li>
+                <li><a href="../">Microcontroladores</a></li>
+            </ul>
+        </main>
+    </body>
+</html>
