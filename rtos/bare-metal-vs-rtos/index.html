@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>RTOS vs bare-metal</title>
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>RTOS vs bare-metal</h1>
+            <p>"Bare-metal" é o firmware que roda diretamente sobre o hardware, sem sistema operacional — tipicamente um laço principal único (superloop) que trata tudo sequencialmente ou por meio de interrupções. Um RTOS adiciona, sobre esse mesmo hardware, uma camada de abstração de tarefas, escalonamento e sincronização.</p>
+
+            <h2>Funcionamento</h2>
+            <h3>Bare-metal</h3>
+            <p>Um superloop verifica continuamente flags marcadas por interrupções e executa o código correspondente de forma sequencial. É simples e previsível para aplicações pequenas e de propósito único, mas escala mal conforme o número de responsabilidades concorrentes cresce.</p>
+
+            <h3>RTOS</h3>
+            <p>Divide a aplicação em tarefas independentes, cada uma com sua prioridade e sua própria pilha. O escalonador decide quem executa e quando, dando a ilusão de paralelismo real em um único núcleo através de trocas de contexto rápidas.</p>
+            <!-- todo: diagrama comparando superloop com tarefas do RTOS -->
+
+            <h2>Vantagens e desvantagens</h2>
+            <h3>Vantagens do bare-metal</h3>
+            <ul>
+                <li>Menor uso de memória e código, sem overhead de troca de contexto</li>
+                <li>Mais simples de depurar, já que o fluxo de execução é linear</li>
+            </ul>
+            <h3>Vantagens do RTOS</h3>
+            <ul>
+                <li>Melhor organização para aplicações complexas, com responsabilidades separadas em tarefas</li>
+                <li>Primitivas de sincronização prontas (semáforos, mutexes, filas)</li>
+                <li>Comportamento de tempo real mais previsível, quando bem configurado</li>
+            </ul>
+            <h3>Desvantagens</h3>
+            <ul>
+                <li>Bare-metal fica difícil de manter conforme a aplicação cresce, já que um bug em uma parte do loop pode afetar as demais</li>
+                <li>RTOS consome mais RAM e Flash (kernel do RTOS, pilha por tarefa) e adiciona overhead de troca de contexto</li>
+            </ul>
+
+            <h2>Ver também</h2>
+            <ul>
+                <li><a href="../escalonamento/">Escalonamento de tarefas</a></li>
+                <li><a href="../sincronizacao/">Sincronização (mutex/semáforo)</a></li>
+                <li><a href="../">RTOS</a></li>
+            </ul>
+        </main>
+    </body>
+</html>
