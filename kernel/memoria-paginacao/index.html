@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Gerenciamento de memoria e paginacao</title>
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>Gerenciamento de memória e paginação</h1>
+            <p>Paginação é a técnica que permite ao sistema operacional dar a cada processo a ilusão de um espaço de endereçamento contíguo e privado, mesmo que a memória física por trás dele esteja fragmentada ou parcialmente ausente da RAM. Isso é feito dividindo a memória virtual e a memória física em blocos de tamanho fixo — páginas e frames, respectivamente — e mantendo tabelas que mapeiam umas nas outras.</p>
+
+            <h2>Funcionamento</h2>
+            <h3>Páginas, frames e a MMU</h3>
+            <p>Cada processo enxerga apenas endereços virtuais. A Memory Management Unit (MMU), um componente de hardware, traduz esses endereços virtuais em endereços físicos reais consultando a tabela de páginas do processo em execução. O tamanho de página mais comum em arquiteturas x86-64 é 4 KiB, embora páginas maiores (huge pages) também sejam suportadas para reduzir overhead de tradução.</p>
+
+            <h3>Tabelas multiníveis e TLB</h3>
+            <p>Em vez de uma tabela única e enorme, arquiteturas modernas usam tabelas de páginas multiníveis (por exemplo, quatro ou cinco níveis em x86-64), economizando memória ao não alocar entradas para regiões de endereço não utilizadas. Como consultar essas tabelas a cada acesso à memória seria caro, a MMU mantém um cache de traduções recentes chamado Translation Lookaside Buffer (TLB).</p>
+            <!-- todo: diagrama de traducao de endereco virtual -> fisico -->
+
+            <h2>Vantagens e desvantagens</h2>
+            <h3>Vantagens</h3>
+            <ul>
+                <li>Isolamento entre processos: um processo não pode acessar a memória física de outro sem permissão explícita</li>
+                <li>Permite que a soma da memória virtual usada pelos processos exceda a RAM física, através de swap em disco</li>
+                <li>Elimina a necessidade de alocar blocos contíguos de memória física, reduzindo fragmentação externa</li>
+            </ul>
+            <h3>Desvantagens</h3>
+            <ul>
+                <li>Overhead de tradução de endereços a cada acesso à memória, parcialmente mitigado pela TLB</li>
+                <li>TLB misses e trocas de contexto frequentes têm custo real de desempenho</li>
+                <li>Fragmentação interna, já que processos raramente usam uma página inteira até o último byte</li>
+                <li>Complexidade adicional no núcleo para gerenciar tabelas, swap e políticas de substituição de páginas</li>
+            </ul>
+
+            <h2>Ver também</h2>
+            <ul>
+                <li><a href="../bootloaders/">Bootloaders e o processo de boot</a></li>
+                <li><a href="../">Kernel / OS Dev</a></li>
+            </ul>
+        </main>
+    </body>
+</html>

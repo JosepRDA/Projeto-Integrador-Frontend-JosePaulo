@@ -7,43 +7,88 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <p>Exemplo de Kernel monolitico iniciando</p>
-        <video 
-            width="480" 
-            height="270" 
-            preload="metadata" 
-            poster="/assets/images/PrismOS-poster.jpg" 
-            controls muted
-        >
-            <!-- 
-                Explicando escolha de modo do preload metadata:
-                O video tem audio que eh inutil para o usuario../..Um dos metadados eh o control para muta-lo
-                "controls muted"../..Dessa forma, quando a pagina carregar, essas informacoes serao mantidas primeiro,
-                evitando que a pagina se comporte da maneira errada../..
-            -->
-            <!-- mp4 + webm -->
-            <source 
-                src="/assets/videos/PrismOS.mp4" 
-                type="video/mp4"
+
+    </body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootloaders</title>
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>Bootloaders e o processo de boot</h1>
+            <p>Um bootloader é o programa responsável por preparar o hardware e carregar o kernel na memória logo após o firmware da placa-mãe (BIOS ou UEFI) entregar o controle da máquina. É o elo entre o momento em que o computador liga e o momento em que o sistema operacional realmente começa a executar.</p>
+
+            <h2>Funcionamento</h2>
+            <h3>Do firmware ao kernel</h3>
+            <p>Ao ligar a máquina, o firmware (BIOS ou UEFI) realiza testes iniciais de hardware (POST) e busca um dispositivo de boot válido. Em sistemas BIOS/MBR, os primeiros 446 bytes do disco de boot contêm o estágio 1 do bootloader, cujo único trabalho é carregar um estágio 2 maior, já que o espaço disponível no MBR é minúsculo. Em sistemas UEFI, o firmware carrega diretamente um executável .efi de uma partição EFI, dispensando esse estágio inicial tão restrito.</p>
+
+            <h3>Estágio 2 e entrega ao kernel</h3>
+            <p>O estágio 2 (ou o carregador UEFI) tem espaço suficiente para ler um sistema de arquivos, apresentar um menu de opções, carregar o kernel e um possível initrd/initramfs na memória, configurar uma estrutura de informações de boot e transferir a execução para o ponto de entrada do kernel — geralmente já alternando para um modo de operação de 32 ou 64 bits.</p>
+            <!-- todo: diagrama da cadeia firmware -> bootloader -> kernel -->
+
+            <h2>BIOS/MBR vs UEFI/GPT</h2>
+            <h3>BIOS/MBR</h3>
+            <ul>
+                <li>Esquema de partição simples (MBR), limitado a 4 partições primárias e discos de até 2 TiB</li>
+                <li>Estágio inicial extremamente restrito (446 bytes), exigindo um segundo estágio</li>
+                <li>Padrão legado, ainda amplamente suportado por compatibilidade</li>
+            </ul>
+            <h3>UEFI/GPT</h3>
+            <ul>
+                <li>Suporta discos maiores e um número maior de partições via GPT</li>
+                <li>Carrega executáveis .efi diretamente, sem a limitação de espaço do MBR</li>
+                <li>Oferece recursos adicionais, como Secure Boot e um shell próprio</li>
+            </ul>
+            <h2>Exemplo</h2>
+            <p>Exemplo de Kernel monolitico iniciando em modo BIOS utilizando o bootloader limine</p>
+            <video 
+                width="480" 
+                height="270" 
+                preload="metadata" 
+                poster="/assets/images/PrismOS-poster.jpg" 
+                controls muted
             >
-            <source 
-                src="/assets/videos/PrismOS.webm" 
-                type="video/webm"
-            >
-            <!-- minha legenda -->
-            <track 
-                src="/assets/subtitles/PrismOS.vtt" 
-                kind="subtitles" 
-                srclang="pt-BR" 
-                label="Portugues (Brasil)"
-                default
-            >
-            <p>
-            Seu navegador não suporta o elemento de vídeo../..
-            <a href="/assets/videos/PrismOS.mp4">Baixe o vídeo</a>.
-            </p>
-        </video>
+                <!-- 
+                    Explicando escolha de modo do preload metadata:
+                    O video tem audio que eh inutil para o usuario../..Um dos metadados eh o control para muta-lo
+                    "controls muted"../..Dessa forma, quando a pagina carregar, essas informacoes serao mantidas primeiro,
+                    evitando que a pagina se comporte da maneira errada../..
+                -->
+                <!-- mp4 + webm -->
+                <source 
+                    src="/assets/videos/PrismOS.mp4" 
+                    type="video/mp4"
+                >
+                <source 
+                    src="/assets/videos/PrismOS.webm" 
+                    type="video/webm"
+                >
+                <!-- minha legenda -->
+                <track 
+                    src="/assets/subtitles/PrismOS.vtt" 
+                    kind="subtitles" 
+                    srclang="pt-BR" 
+                    label="Portugues (Brasil)"
+                    default
+                >
+                <p>
+                Seu navegador não suporta o elemento de vídeo../..
+                <a href="/assets/videos/PrismOS.mp4">Baixe o vídeo</a>.
+                </p>
+            </video>
         <p>
 
+            <h2>Ver também</h2>
+            <ul>
+                <li><a href="../memoria-paginacao/">Gerenciamento de memória e paginação</a></li>
+                <li><a href="../">Kernel / OS Dev</a></li>
+            </ul>
+        </main>
     </body>
 </html>

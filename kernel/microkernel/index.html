@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Microkernel</title>
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>Microkernel</h1>
+            <p>Um microkernel é uma estrutura de sistema operacional que reduz ao mínimo o código executado em espaço de núcleo, mantendo ali apenas serviços essenciais como comunicação entre processos (IPC), escalonamento básico e uma camada mínima de gerenciamento de memória. Sistemas de arquivos, drivers de dispositivo, protocolos de rede e outros serviços rodam como processos comuns em espaço de usuário, isolados do núcleo.</p>
+
+            <h2>Funcionamento</h2>
+            <h3>Serviços em espaço de usuário</h3>
+            <p>Cada serviço (driver, sistema de arquivos, pilha de rede) roda como um processo separado, com seu próprio espaço de memória protegido. Quando um processo precisa de um recurso oferecido por outro, a comunicação passa por troca de mensagens, mediada pelo núcleo.</p>
+
+            <h3>Comunicação entre processos (IPC)</h3>
+            <p>Como os serviços não compartilham espaço de endereçamento, toda interação exige uma chamada ao núcleo para encaminhar a mensagem ao destinatário e uma troca de contexto entre os processos envolvidos. Esse mecanismo é o que garante o isolamento, mas também é a principal fonte de overhead da arquitetura.</p>
+            <!-- todo: diagrama do fluxo de IPC -->
+
+            <h2>Vantagens e desvantagens</h2>
+            <h3>Vantagens</h3>
+            <ul>
+                <li>Isolamento de falhas: um driver ou serviço com bug pode falhar e ser reiniciado sem derrubar o sistema inteiro</li>
+                <li>Modularidade: serviços podem ser adicionados, removidos ou substituídos sem recompilar o núcleo</li>
+                <li>Superfície de ataque reduzida em modo privilegiado, já que menos código roda com acesso total ao hardware</li>
+            </ul>
+            <h3>Desvantagens</h3>
+            <ul>
+                <li>Overhead de desempenho causado pelas trocas de contexto e mensagens de IPC entre processos</li>
+                <li>Maior complexidade no design da comunicação entre serviços</li>
+                <li>Historicamente mais lento que kernels monolíticos, embora otimizações como as da família L4 tenham reduzido bastante essa diferença</li>
+            </ul>
+
+            <h2>Ver também</h2>
+            <ul>
+                <li><a href="../monolitico/">Kernel monolítico</a></li>
+                <li><a href="../">Kernel / OS Dev</a></li>
+            </ul>
+        </main>
+    </body>
+</html>
