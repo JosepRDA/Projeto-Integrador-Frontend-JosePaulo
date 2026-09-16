@@ -8,9 +8,10 @@
     </head>
     <body>
         <main>
-            <h1>Microkernel</h1>
-            <p>Um microkernel é uma estrutura de sistema operacional que reduz ao mínimo o código executado em espaço de núcleo, mantendo ali apenas serviços essenciais como comunicação entre processos (IPC), escalonamento básico e uma camada mínima de gerenciamento de memória. Sistemas de arquivos, drivers de dispositivo, protocolos de rede e outros serviços rodam como processos comuns em espaço de usuário, isolados do núcleo.</p>
-
+            <div class="card">
+                <h1>Microkernel</h1>
+                <p>Um microkernel é uma estrutura de sistema operacional que reduz ao mínimo o código executado em espaço de núcleo, mantendo ali apenas serviços essenciais como comunicação entre processos (IPC), escalonamento básico e uma camada mínima de gerenciamento de memória. Sistemas de arquivos, drivers de dispositivo, protocolos de rede e outros serviços rodam como processos comuns em espaço de usuário, isolados do núcleo.</p>
+            </div>
             <h2>Funcionamento</h2>
             <h3>Serviços em espaço de usuário</h3>
             <p>Cada serviço (driver, sistema de arquivos, pilha de rede) roda como um processo separado, com seu próprio espaço de memória protegido. Quando um processo precisa de um recurso oferecido por outro, a comunicação passa por troca de mensagens, mediada pelo núcleo.</p>

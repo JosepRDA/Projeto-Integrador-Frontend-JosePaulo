@@ -21,9 +21,10 @@
     </head>
     <body>
         <main>
-            <h1>Bootloaders e o processo de boot</h1>
-            <p>Um bootloader é o programa responsável por preparar o hardware e carregar o kernel na memória logo após o firmware da placa-mãe (BIOS ou UEFI) entregar o controle da máquina. É o elo entre o momento em que o computador liga e o momento em que o sistema operacional realmente começa a executar.</p>
-
+            <div class="card">
+                <h1>Bootloaders e o processo de boot</h1>
+                <p>Um bootloader é o programa responsável por preparar o hardware e carregar o kernel na memória logo após o firmware da placa-mãe (BIOS ou UEFI) entregar o controle da máquina. É o elo entre o momento em que o computador liga e o momento em que o sistema operacional realmente começa a executar.</p>
+            </div>
             <h2>Funcionamento</h2>
             <h3>Do firmware ao kernel</h3>
             <p>Ao ligar a máquina, o firmware (BIOS ou UEFI) realiza testes iniciais de hardware (POST) e busca um dispositivo de boot válido. Em sistemas BIOS/MBR, os primeiros 446 bytes do disco de boot contêm o estágio 1 do bootloader, cujo único trabalho é carregar um estágio 2 maior, já que o espaço disponível no MBR é minúsculo. Em sistemas UEFI, o firmware carrega diretamente um executável .efi de uma partição EFI, dispensando esse estágio inicial tão restrito.</p>

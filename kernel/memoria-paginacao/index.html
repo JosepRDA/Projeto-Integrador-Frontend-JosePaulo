@@ -8,9 +8,10 @@
     </head>
     <body>
         <main>
-            <h1>Gerenciamento de memória e paginação</h1>
-            <p>Paginação é a técnica que permite ao sistema operacional dar a cada processo a ilusão de um espaço de endereçamento contíguo e privado, mesmo que a memória física por trás dele esteja fragmentada ou parcialmente ausente da RAM. Isso é feito dividindo a memória virtual e a memória física em blocos de tamanho fixo — páginas e frames, respectivamente — e mantendo tabelas que mapeiam umas nas outras.</p>
-
+            <div class="card">
+                <h1>Gerenciamento de memória e paginação</h1>
+                <p>Paginação é a técnica que permite ao sistema operacional dar a cada processo a ilusão de um espaço de endereçamento contíguo e privado, mesmo que a memória física por trás dele esteja fragmentada ou parcialmente ausente da RAM. Isso é feito dividindo a memória virtual e a memória física em blocos de tamanho fixo — páginas e frames, respectivamente — e mantendo tabelas que mapeiam umas nas outras.</p>
+            </div>
             <h2>Funcionamento</h2>
             <h3>Páginas, frames e a MMU</h3>
             <p>Cada processo enxerga apenas endereços virtuais. A Memory Management Unit (MMU), um componente de hardware, traduz esses endereços virtuais em endereços físicos reais consultando a tabela de páginas do processo em execução. O tamanho de página mais comum em arquiteturas x86-64 é 4 KiB, embora páginas maiores (huge pages) também sejam suportadas para reduzir overhead de tradução.</p>
