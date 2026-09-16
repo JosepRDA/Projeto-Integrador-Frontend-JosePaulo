@@ -1,0 +1,12 @@
+/* etapa 1: border-box */
+*::before, 
+*::after {
+    box-sizing: border-box;
+}
+
+/* etapa 1: remover margins/paddings */ 
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
