@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>UART</title>
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>UART (Universal Asynchronous Receiver-Transmitter)</h1>
+            <p>UART é um protocolo de comunicação serial assíncrono e ponto a ponto, muito usado para comunicação simples entre microcontroladores, sensores e consoles de depuração. "Assíncrono" aqui significa que não existe uma linha de clock compartilhada: os dois lados precisam apenas concordar com a mesma velocidade de transmissão previamente.</p>
+
+            <h2>Funcionamento</h2>
+            <h3>Quadro de dados (frame)</h3>
+            <p>Cada byte transmitido é encapsulado em um quadro: um bit de start (nível baixo, indicando início da transmissão), de 5 a 9 bits de dados, um bit de paridade opcional e um ou dois bits de stop (nível alto). Entre transmissões, a linha permanece em nível alto (idle).</p>
+
+            <h3>Baud rate e sincronização</h3>
+            <p>Como não há clock compartilhado, transmissor e receptor precisam ser configurados com a mesma taxa de transmissão (baud rate, ex: 9600, 115200 bps). O receptor faz amostragem da linha várias vezes por bit (tipicamente 16x) para localizar o centro de cada bit e reduzir o efeito de pequenas diferenças de clock entre os dois lados.</p>
+            <!-- todo: diagrama do quadro UART -->
+
+            <h2>Vantagens e desvantagens</h2>
+            <h3>Vantagens</h3>
+            <ul>
+                <li>Hardware simples: apenas duas linhas (TX e RX), sem necessidade de linha de clock</li>
+                <li>Amplamente suportado por praticamente qualquer microcontrolador e usado como interface de depuração padrão</li>
+                <li>Baixo custo de implementação</li>
+            </ul>
+            <h3>Desvantagens</h3>
+            <ul>
+                <li>Comunicação ponto a ponto: não há endereçamento nativo para múltiplos dispositivos no mesmo barramento</li>
+                <li>Sem clock compartilhado, pequenas diferenças de baud rate entre os dispositivos acumulam erro ao longo do quadro</li>
+                <li>Taxas de transmissão geralmente mais baixas que protocolos síncronos como SPI</li>
+            </ul>
+
+            <h2>Ver também</h2>
+            <ul>
+                <li><a href="../spi/">SPI</a></li>
+                <li><a href="../i2c/">I2C</a></li>
+                <li><a href="../">Protocolos</a></li>
+            </ul>
+        </main>
+    </body>
+</html>

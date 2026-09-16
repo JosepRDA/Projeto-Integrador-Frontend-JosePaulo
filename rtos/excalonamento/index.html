@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Escalonamento de tarefas</title>
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>Escalonamento de tarefas</h1>
+            <p>O escalonador é o componente do RTOS responsável por decidir, a cada instante, qual das tarefas prontas recebe a CPU, com base em prioridade e, em muitos casos, restrições de tempo (deadlines).</p>
+
+            <h2>Funcionamento</h2>
+            <h3>Escalonamento preemptivo por prioridade</h3>
+            <p>A maioria dos RTOS usa escalonamento preemptivo por prioridade fixa ou dinâmica: a tarefa pronta de maior prioridade sempre executa; se uma tarefa de prioridade mais alta se tornar pronta, a tarefa em execução (de prioridade menor) é imediatamente interrompida.</p>
+
+            <h3>Round-robin entre tarefas de mesma prioridade</h3>
+            <p>Tarefas que compartilham o mesmo nível de prioridade costumam ser escalonadas em round-robin, cada uma recebendo uma fatia de tempo (quantum) antes de ceder a vez à próxima tarefa do mesmo nível.</p>
+            <!-- todo: diagrama de linha do tempo com preempcao -->
+
+            <h2>Vantagens e desvantagens</h2>
+            <h3>Vantagens</h3>
+            <ul>
+                <li>Garante resposta previsível para tarefas críticas de tempo, desde que priorizadas corretamente</li>
+                <li>Permite análise formal de escalonabilidade, como o teste de utilização de Liu &amp; Layland para Rate Monotonic Scheduling</li>
+            </ul>
+            <h3>Desvantagens</h3>
+            <ul>
+                <li>Prioridades mal definidas podem causar inversão de prioridade, quando uma tarefa de baixa prioridade bloqueia indiretamente uma de alta prioridade através de um recurso compartilhado</li>
+                <li>Tarefas de baixa prioridade podem sofrer starvation se tarefas de alta prioridade monopolizarem a CPU</li>
+            </ul>
+
+            <h2>Ver também</h2>
+            <ul>
+                <li><a href="../sincronizacao/">Sincronização (mutex/semáforo)</a></li>
+                <li><a href="../bare-metal/">RTOS vs bare-metal</a></li>
+                <li><a href="../">RTOS</a></li>
+            </ul>
+        </main>
+    </body>
+</html>

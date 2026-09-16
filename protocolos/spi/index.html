@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>SPI</title>
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>SPI (Serial Peripheral Interface)</h1>
+            <p>SPI é um protocolo de comunicação serial síncrono e full-duplex, organizado no modelo master-slave. É comum em sensores, displays e memórias flash externas, onde a velocidade de transferência importa mais do que a simplicidade de fiação.</p>
+
+            <h2>Funcionamento</h2>
+            <h3>Linhas do barramento</h3>
+            <p>O SPI usa quatro linhas principais: SCLK (clock, gerado pelo master), MOSI (Master Out, Slave In), MISO (Master In, Slave Out) e SS/CS (Chip Select), uma linha de seleção dedicada para cada dispositivo escravo conectado ao barramento.</p>
+
+            <h3>Modos e seleção de dispositivo</h3>
+            <p>O master gera o clock e ativa a linha CS do escravo com quem quer se comunicar (geralmente em nível baixo). A cada pulso de clock, um bit é transferido simultaneamente em MOSI e MISO, o que torna a comunicação full-duplex. A polaridade e a fase do clock (CPOL/CPHA) definem os quatro "modos" SPI, e master e slave precisam usar o mesmo modo para se entenderem.</p>
+            <!-- todo: diagrama das linhas SCLK/MOSI/MISO/CS -->
+
+            <h2>Vantagens e desvantagens</h2>
+            <h3>Vantagens</h3>
+            <ul>
+                <li>Comunicação full-duplex: dados podem ser enviados e recebidos ao mesmo tempo</li>
+                <li>Alta velocidade — o clock pode chegar a dezenas de MHz, muito acima do UART e do I2C</li>
+                <li>Protocolo simples de implementar em hardware, sem lógica de arbitração</li>
+            </ul>
+            <h3>Desvantagens</h3>
+            <ul>
+                <li>Requer uma linha CS dedicada por escravo, o que escala mal com muitos periféricos</li>
+                <li>Sem endereçamento nativo nem confirmação de recebimento (ACK) embutida no protocolo</li>
+                <li>Mais pinos ocupados que I2C para o mesmo número de dispositivos</li>
+            </ul>
+
+            <h2>Ver também</h2>
+            <ul>
+                <li><a href="../uart/">UART</a></li>
+                <li><a href="../i2c/">I2C</a></li>
+                <li><a href="../">Protocolos</a></li>
+            </ul>
+        </main>
+    </body>
+</html>

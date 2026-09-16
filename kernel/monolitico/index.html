@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Kernel monolitico</title>
+        <link href="/css/style" rel="stylesheet">
+    </head>
+    <body>
+        <h1>O que eh um kernel monolitico?</h1>
+        <p>Um kernel monolitico e uma estrutura de sistema operacional onde todos os servicos essenciais - como gerenciamento de memoria, agendamento de processos, sistemas de arquivos e drivers de dispositivos — rodam juntos em um único espaço de endereço de memória e com acesso total ao hardware</p>
+
+        <h2>Funcionamento</h2>
+        <h3>Espaco de nucleo</h3>
+        <p>Todo o codigo do sistema opera em modo supervisor (ou protegido) o que permite comunicacao direta entre as funcoes sem camadas intermediarias. Isso resulta em um desempenho muito elevado, pois a latencia de acesso aos recursos do sistema eh quase nula</p>
+        <!-- todo -->
+        <h2>Vantagens e desvantagens</h2>
+        <h3>Vantagens</h3>
+        <ul>
+            <li>Velocidade superior de processamento e comunicacao</li>
+            <li>Implementacao mais direta e consolidada ao longo de decadas de refinamento das tecnicas</li>
+        </ul>
+        <h3>Desvantagens</h3>
+        <ul>
+            <li>Uma consequencia dessa arquitetura eh que uma falha em qualquer parte do nucleo pode derrubar todo o sistema, evidenciando a interdependcia total</li>
+            <li>Complexidade elevada do codigo fonte devido a acumulaco de funcoes e codigo legado em decorrencia do tempo.</li>
+        </ul>
+    </body>
+</html>

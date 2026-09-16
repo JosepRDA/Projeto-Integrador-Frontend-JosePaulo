@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Sincronizacao</title>
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>Sincronização entre tarefas</h1>
+            <p>Quando várias tarefas compartilham recursos — memória, um periférico, uma estrutura de dados — o RTOS oferece primitivas de sincronização para coordenar o acesso e evitar condições de corrida.</p>
+
+            <h2>Funcionamento</h2>
+            <h3>Semáforos</h3>
+            <p>Um semáforo é um contador que as tarefas incrementam ou decrementam para sinalizar a disponibilidade de um recurso ou a ocorrência de um evento. Semáforos binários (0/1) são comuns para sinalizar entre uma ISR e uma tarefa, enquanto semáforos contadores acompanham múltiplas unidades disponíveis de um mesmo recurso.</p>
+
+            <h3>Mutexes e inversão de prioridade</h3>
+            <p>Um mutex é um semáforo especializado em exclusão mútua, ligado ao conceito de posse: apenas a tarefa que travou o mutex pode destravá-lo. Muitos RTOS implementam herança de prioridade no mutex — uma tarefa de baixa prioridade que está segurando o mutex tem sua prioridade temporariamente elevada até a da tarefa de prioridade mais alta que está esperando por ele, evitando uma inversão de prioridade sem limite.</p>
+            <!-- todo: diagrama de heranca de prioridade -->
+
+            <h2>Vantagens e desvantagens</h2>
+            <h3>Vantagens</h3>
+            <ul>
+                <li>Previnem condições de corrida e corrupção de dados compartilhados entre tarefas</li>
+                <li>Mutexes com herança de prioridade mitigam o problema de inversão de prioridade</li>
+            </ul>
+            <h3>Desvantagens</h3>
+            <ul>
+                <li>Uso incorreto pode causar deadlocks, quando duas tarefas esperam mutuamente por recursos travados uma pela outra</li>
+                <li>Overhead de sincronização cresce em sistemas com muitos recursos compartilhados</li>
+            </ul>
+
+            <h2>Ver também</h2>
+            <ul>
+                <li><a href="../escalonamento/">Escalonamento de tarefas</a></li>
+                <li><a href="../bare-metal/">RTOS vs bare-metal</a></li>
+                <li><a href="../">RTOS</a></li>
+            </ul>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ADC/DAC</title>
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>ADC e DAC</h1>
+            <p>Um ADC (Analog-to-Digital Converter) converte uma tensão analógica contínua em um valor digital discreto. Um DAC (Digital-to-Analog Converter) faz o caminho inverso, permitindo que o microcontrolador produza uma tensão analógica a partir de um valor digital. Juntos, são a ponte entre o mundo digital do MCU e sensores/atuadores analógicos.</p>
+
+            <h2>Funcionamento</h2>
+            <h3>ADC — amostragem e resolução</h3>
+            <p>O ADC amostra periodicamente uma tensão analógica e a quantiza em um valor digital de N bits (resolução, por exemplo 10 ou 12 bits). Existe um compromisso entre taxa de amostragem, resolução e tensão de referência, que juntos definem a precisão da medição. Muitos microcontroladores usam conversores SAR (Successive Approximation Register), um bom equilíbrio entre velocidade, simplicidade e precisão.</p>
+
+            <h3>DAC — reconstrução do sinal</h3>
+            <p>O DAC converte um valor digital de volta em uma tensão analógica proporcional, geralmente seguido de um filtro para suavizar os "degraus" da conversão. Microcontroladores mais simples, sem um DAC dedicado, costumam aproximar uma saída analógica combinando PWM com um filtro passa-baixa externo.</p>
+            <!-- todo: diagrama de amostragem e quantizacao do ADC -->
+
+            <h2>Vantagens e desvantagens</h2>
+            <h3>Vantagens</h3>
+            <ul>
+                <li>Permitem que o MCU leia sensores analógicos (temperatura, luz, tensão) sem hardware externo de conversão</li>
+                <li>Permitem gerar sinais analógicos diretamente do firmware</li>
+            </ul>
+            <h3>Desvantagens</h3>
+            <ul>
+                <li>Resolução e velocidade de amostragem limitadas em comparação a conversores dedicados de alta performance</li>
+                <li>Ruído elétrico interno ao chip pode degradar a precisão da leitura, especialmente em resoluções mais altas</li>
+            </ul>
+
+            <h2>Ver também</h2>
+            <ul>
+                <li><a href="../timers-pwm/">Timers e PWM</a></li>
+                <li><a href="../arquitetura-perifericos/">Arquitetura e periféricos</a></li>
+                <li><a href="../">Microcontroladores</a></li>
+            </ul>
+        </main>
+    </body>
+</html>

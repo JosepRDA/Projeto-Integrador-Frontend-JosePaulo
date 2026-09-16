@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Chamadas de sistema (syscalls)</title>
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>Chamadas de sistema (syscalls)</h1>
+            <p>Uma chamada de sistema (syscall) é o mecanismo controlado pelo qual um programa em espaço de usuário solicita um serviço ao núcleo — abrir um arquivo, alocar memória, criar um processo, enviar dados pela rede — sem poder executar diretamente código ou acessar hardware em modo privilegiado.</p>
+
+            <h2>Funcionamento</h2>
+            <h3>Transição de modo</h3>
+            <p>Em vez de um salto comum de função, uma syscall usa uma instrução especial de trap (como <code>int 0x80</code> historicamente, ou <code>syscall</code>/<code>sysenter</code> em x86-64 moderno) que interrompe a execução em modo usuário e transfere o controle a um ponto de entrada fixo no núcleo, já em modo supervisor. O número da syscall e seus argumentos são passados por registradores, ou pela pilha, dependendo da convenção.</p>
+
+            <h3>Validação e retorno</h3>
+            <p>Ao assumir o controle, o núcleo identifica qual serviço foi solicitado pela tabela de syscalls, valida cuidadosamente os argumentos recebidos — já que vêm de um contexto não confiável —, executa a operação e devolve o resultado ao processo, retornando ao modo usuário no ponto exato em que a execução havia sido interrompida.</p>
+            <!-- todo: diagrama da transicao usuario -> nucleo -->
+
+            <h2>Vantagens e desvantagens</h2>
+            <h3>Vantagens</h3>
+            <ul>
+                <li>Controle rígido sobre o que o espaço de usuário pode fazer, já que toda operação sensível passa por validação do núcleo</li>
+                <li>Interface relativamente estável entre versões do sistema, permitindo que binários continuem funcionando</li>
+                <li>Abstração da complexidade: bibliotecas como a libc escondem os detalhes da transição de modo do programador</li>
+            </ul>
+            <h3>Desvantagens</h3>
+            <ul>
+                <li>Overhead de desempenho pela troca de modo e possível troca de contexto a cada chamada</li>
+                <li>Superfície de ataque relevante: bugs de validação de argumentos em syscalls são uma fonte comum de vulnerabilidades</li>
+                <li>Evolução lenta: adicionar ou modificar syscalls exige cuidado para não quebrar compatibilidade com programas existentes</li>
+            </ul>
+
+            <h2>Ver também</h2>
+            <ul>
+                <li><a href="../microkernel/">Microkernel</a></li>
+                <li><a href="../">Kernel / OS Dev</a></li>
+            </ul>
+        </main>
+    </body>
+</html>

@@ -1,126 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Embedded Wiki</title>
-        <link href="css/style.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
     </head>
     <body>
         <img src="assets/images/c-plus-plus-logo.jpg" alt="Ícone da linguagem C++" width="100" height="100">
         <h1>Embedded Wiki</h1>
-        <p>Uma wiki colaborativa sobre desenvolvimento de baixo nível e sistemas embarcados.</p>
+        <p>Desenvolvimento de baixo nivel e sistemas embarcados</p>
 
         <header>
             <nav>
+                <!-- <ul> -->
+                <!--     <h2>Para os iniciantes</h2> -->
+                <!--     <li>Pre-requisitos</li> -->
+                <!--     <li>Livros indicados</li> -->
+                <!--     <li>Conteudos adicionais</li> -->
+                <!-- </ul> -->
                 <ul>
-                    <li><a href="#kernel">Kernel/OS Dev</a></li>
-                    <li><a href="#rtos">RTOS</a></li>
-                    <li><a href="#microcontroladores">Microcontroladores</a></li>
-                    <li><a href="#protocolos">Protocolos</a></li>
-                    <li><a href="#sugerir">Sugerir verbete</a></li>
+                    <h2>Sistemas Operacionais</h2>
+                    <li><a href="kernel/">Kernel/OS Dev</a></li>
+                    <li><a href="rtos/">RTOS</a></li>
                 </ul>
+                <ul>
+                    <h2>Hardware</h2>
+                    <li><a href="mcus/">Microcontroladores</a></li>
+                    <li><a href="protocolos/">Protocolos</a></li>
+                </ul>
+                <!-- <ul> -->
+                <!--     <h2>Para onde ir agora?</h2> -->
+                <!-- </ul> -->
             </nav>
         </header>
 
         <main>
-
-            <section id="kernel">
-                <h2>Kernel / OS Dev</h2>
-                <p>Fundamentos de escrita de sistemas operacionais: como um kernel inicializa, gerencia recursos e expõe serviços para o espaço de usuário.</p>
-                <ul>
-                    <li>Kernel monolítico vs microkernel</li>
-                    <li>Bootloaders e o processo de boot</li>
-                    <li>Gerenciamento de memória e paginação</li>
-                    <li>Chamadas de sistema (syscalls)</li>
-                </ul>
-                <p>Exemplo de Kernel monolitico iniciando</p>
-                <video 
-                    width="480" 
-                    height="270" 
-                    preload="metadata" 
-                    poster="assets/images/PrismOS-poster.jpg" 
-                    controls muted
-                >
-                    <!-- 
-                        Explicando escolha de modo do preload metadata:
-                        O video tem audio que eh inutil para o usuario. Um dos metadados eh o control para muta-lo
-                        "controls muted". Dessa forma, quando a pagina carregar, essas informacoes serao mantidas primeiro,
-                        evitando que a pagina se comporte da maneira errada. 
-                    -->
-                    <!-- mp4 + webm -->
-                    <source 
-                        src="assets/videos/PrismOS.mp4" 
-                        type="video/mp4"
-                    >
-                    <source 
-                        src="assets/videos/PrismOS.webm" 
-                        type="video/webm"
-                    >
-                    <!-- minha legenda -->
-                    <track 
-                        src="assets/subtitles/PrismOS.vtt" 
-                        kind="subtitles" 
-                        srclang="pt-BR" 
-                        label="Portugues (Brasil)"
-                        default
-                    >
-                    <p>
-                    Seu navegador não suporta o elemento de vídeo. 
-                    <a href="assets/videos/PrismOS.mp4">Baixe o vídeo</a>.
-                    </p>
-                </video>
-                <p>
-                    <a href="https://osdev.wiki" target="_blank" rel="noopener noreferrer">OSDev Wiki</a> — referência externa usada como inspiração para este projeto.
-                </p>
-            </section>
- 
-            <section id="rtos">
-                <h2>RTOS</h2>
-                <p>Sistemas operacionais de tempo real, focados em previsibilidade e resposta dentro de prazos rígidos.</p>
-            </section>
- 
-            <section id="microcontroladores">
-                <h2>Microcontroladores</h2>
-                <p>Periféricos e conceitos de hardware comuns ao programar para MCUs.</p>
-                <table>
-                    <tr>
-                        <th scope="col">Periférico</th>
-                        <th scope="col">Descrição</th>
-                    </tr>
-                    <tr>
-                        <td>UART</td>
-                        <td>Comunicação serial assíncrona ponto a ponto</td>
-                    </tr>
-                    <tr>
-                        <td>GPIO</td>
-                        <td>Pinos de entrada e saída de uso geral</td>
-                    </tr>
-                </table>
-            </section>
- 
-            <section id="protocolos">
-                <h2>Protocolos</h2>
-                <p>Protocolos de comunicação usados entre microcontroladores e periféricos.</p>
-                <ul>
-                    <li>UART</li>
-                    <li>SPI</li>
-                    <li>I2C</li>
-                    <li>CAN</li>
-                </ul>
-            </section>
- 
             <section id="sugerir">
                 <h2>Sugerir um novo verbete</h2>
                 <form>
                     <fieldset>
                         <legend>Dados do novo verbete</legend>
- 
+
                         <div>
                             <label for="termo">Nome do termo</label>
                             <input type="text" id="termo" name="termo" required>
                         </div>
- 
+
                         <div>
                             <label for="categoria">Categoria</label>
                             <select id="categoria" name="categoria" required>
@@ -131,29 +57,29 @@
                                 <option value="protocolos">Protocolos</option>
                             </select>
                         </div>
- 
+
                         <div>
                             <label for="email">Seu e-mail</label>
                             <input type="email" id="email" name="email" required>
                         </div>
- 
+
                         <div>
                             <label for="prioridade">Prioridade sugerida (1 a 5)</label>
                             <input type="number" id="prioridade" name="prioridade" min="1" max="5">
                         </div>
- 
+
                         <div>
                             <label for="descricao">Descrição do verbete</label>
                             <textarea id="descricao" name="descricao" rows="4"></textarea>
                         </div>
- 
+
                         <button type="submit">Enviar sugestão</button>
                     </fieldset>
                 </form>
             </section>
         </main>
-
         <footer>
+            <p><a href="https://osdev.wiki">OSDev.wiki</a> - Inspiracao para o projeto</p>
             <p>Embedded Wiki — Projeto Integrador, Desenvolvimento Front-end para Web.</p>
         </footer>
     </body>

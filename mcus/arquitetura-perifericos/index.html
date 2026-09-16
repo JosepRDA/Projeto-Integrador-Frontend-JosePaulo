@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Arquitetura e perifericos</title>
+        <link href="/css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <main>
+            <h1>Arquitetura e periféricos de microcontroladores</h1>
+            <p>Um microcontrolador integra em um único chip a CPU, memória (flash e RAM) e periféricos, diferente de um processador de propósito geral, que depende de chips externos (chipset, memória) para funcionar.</p>
+
+            <h2>Funcionamento</h2>
+            <h3>Harvard vs Von Neumann</h3>
+            <p>Muitos microcontroladores usam uma variante da arquitetura Harvard, com barramentos separados para memória de instruções (geralmente a flash) e memória de dados (RAM), permitindo buscar uma instrução e acessar dados no mesmo ciclo. Isso contrasta com a arquitetura Von Neumann clássica, onde instruções e dados compartilham o mesmo barramento de memória.</p>
+
+            <h3>Periféricos integrados</h3>
+            <p>Além da CPU e da memória, o chip inclui periféricos mapeados no mesmo espaço de endereçamento: GPIO, timers, conversores ADC/DAC, controladores UART/SPI/I2C, watchdog timer, entre outros. Cada periférico é controlado através de registradores específicos, acessados como se fossem posições de memória comuns.</p>
+            <!-- todo: diagrama de barramentos Harvard -->
+
+            <h2>Vantagens e desvantagens</h2>
+            <h3>Vantagens</h3>
+            <ul>
+                <li>Alto grau de integração, reduzindo custo e espaço ocupado na placa</li>
+                <li>Consumo de energia menor que um sistema baseado em CPU + chipset separados</li>
+                <li>Timing mais previsível, importante para sistemas embarcados de tempo real</li>
+            </ul>
+            <h3>Desvantagens</h3>
+            <ul>
+                <li>Recursos limitados em comparação a um processador de propósito geral (menos RAM, clock mais baixo)</li>
+                <li>Maior acoplamento entre hardware e software: código de acesso a periféricos costuma ser pouco portátil entre famílias diferentes de MCU</li>
+            </ul>
+
+            <h2>Ver também</h2>
+            <ul>
+                <li><a href="../gpio-interrupcoes/">GPIO e interrupções</a></li>
+                <li><a href="../timers-pwm/">Timers e PWM</a></li>
+                <li><a href="../">Microcontroladores</a></li>
+            </ul>
+        </main>
+    </body>
+</html>
