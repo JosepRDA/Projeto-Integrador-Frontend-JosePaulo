@@ -1,11 +1,209 @@
+/*1: variáveis globais
+ *  Defini um monte delas, bem mais do que o pedido.
+ *  Acredito que vou usar muitas no futuro ainda, então já vou deixar definido
+ *  logo pra não ter que fazer agora
+ * */
+
 :root {
-    max-width: 1024px;
+    /* max-width: 1024px; */
+    /* variaveis: */
+    --cor-fundo: #f8f9fa;       /*cor padrão das wikis tipo wikipedia. Aquele brancão clássico */
+    --cor-surface: #ffffff;
+    --cor-superficie-alt: #f1f3f5;
+
+    --cor-texto: #202122;
+    --cor-titulo-princial:#202233; /* levemente diferente do texto padrão */
+    --cor-texto-muted: #54595d;
+
+    --cor-link: #0645ad;
+    --cor-link-visitado: #551a8b;
+    --cor-link-hover: #3366cc;
+
+    --cor-borda: #a2a9b1;
+    --cor-borda-light: #c8ccd1;
+
+    --cor-heading: #202122;
+    --cor-fundo: #f8f9fa;
+
+    --espacamento-xs: 0.25rem;
+    --espacamento-sm: 0.5rem;
+    --espacamento-md: 1rem;
+    --espacamento-lg: 1.5rem;
+    --espacamento-xl: 2rem;
+
+    --raio-sm: 0.2rem;
+    --raio-md: 0.4rem;
+
+    --largura-conteudo: 75rem;
+}
+
+/*2: estilização base*/
+html {
+    /* rem é utilizado para tamanhos de fonte para respeitar 
+     * a preferencia de fonte configurada pelo usuário .
+     * assim evitamos usar px para redimensionar tudo */
+    font-size: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+
+    /*
+     * combinção mt boa para uma leitura confortável
+     * */
+    font-family:  
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    /* 1rem parece um tamanho bem legivel aos meus olhos*/
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 main {
-    align-content: center;
+    width: min(100% - 2rem, var(--content-width));
+    margin: 0 auto;
+    padding: var(--spacing-xl) 0;
 }
 
-h1 { 
-    align-content: center;
+/*3: classes retulizaveis
+ * Eu defini as tres assim como a atividade exigiu, porém só vi utilidade na classe card.
+ * Os outros dois estão aí somente por requisito da atividade, ainda não achei um uso para eles*/
+.card {
+    margin: var(--espacamento-lg) 0;
+    padding: var(--espacamento-lg);
+
+    border: 1px solid var(--cor-borda-light);
+    border-radius: var(--raio-sm);
+
+    background-color: var(--cor-superficie-alt);   
+}
+
+/* Caixa usada para destacar alguma informação. */
+.destaque {
+    margin: var(--espacamento-md) 0;
+    padding: var(--espacamento-md);
+
+    border-left: 0.25rem solid var(--cor-link);
+    background-color: var(--cor-superficie-alt);
+}
+
+/* Botão reutilizável. */
+.botao {
+    display: inline-block;
+
+    margin: var(--espacamento-sm) 0;
+    padding: 0.4rem 0.8rem;
+
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-sm);
+
+    background-color: var(--cor-superficie-alt);
+    color: var(--cor-texto);
+
+    font-size: 1rem;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+
+.botao:hover {
+    background-color: #eaecf0;
+    text-decoration: none;
+}
+
+/* 4: seletor de id (se aplica apenas ao index.html no root do projeto) */
+#titulo-principal {
+    /*tem que ser uma fonte bem grandona pra chamar a atenção*/
+    font-size: 3rem;
+    color: var(--cor-titulo-princial);
+}
+
+/*5: titulos */ 
+h1,
+h2,
+h3,
+h4 {
+    color: var(--cor-heading);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+h1 {
+    margin: 0 0 var(--espacamento-md);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 2rem;
+}
+
+h2 {
+    margin-top: var(--espacamento-xl);
+    padding-bottom: var(--espacamento-xs);
+
+    border-bottom: 1px solid var(--cor-borda-light);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.5rem;
+}
+
+h3 {
+    margin-top: var(--espacamento-lg);
+    font-size: 1.25rem;
+}
+
+
+
+/*
+ * 7: Links
+ * */
+a:link {
+    color: var(--cor-link);
+}
+
+a:visited {
+    color: var(--cor-link-visitado);
+}
+
+a:hover {
+    color: var(--cor-link-hover);
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--cor-link);
+}
+
+/*
+ * Combinador de filho direto:
+ *
+ * Somente parágrafos que são filhos diretos de .card recebem
+ * este espaçamento. 
+ * Isso se aplica principalmente aos <p> dentro dos <div class="card"> dentro de cada arquivo html
+ */
+.card > p {
+    margin-bottom: var(--spacing-md);
+}
+
+/*listas + box model*/
+
+/* O projeto diz explicitamente para utilizar isso com listas já existents no projeto. Porém eu não tinha nenhuma
+ * para não criar algo que não deveria estar lá, decidi apenas alterar o elemento mais próximo disso no projeto.*/
+nav ul {
+    margin: 1rem 0;
+    padding: 1rem;
+
+    border: 1px solid var(--cor-borda-light);
+    border-radius: var(--raio-sm);
+
+    list-style-type: none;
+}
+
+nav li {
+    padding: 0.25rem 0;
 }
