@@ -5,8 +5,6 @@
  * */
 
 :root {
-    /* max-width: 1024px; */
-    /* variaveis: */
     --cor-fundo: #f8f9fa;       /*cor padrão das wikis tipo wikipedia. Aquele brancão clássico */
     --cor-surface: #ffffff;
     --cor-superficie-alt: #f1f3f5;
@@ -23,7 +21,6 @@
     --cor-borda-light: #c8ccd1;
 
     --cor-heading: #202122;
-    --cor-fundo: #f8f9fa;
 
     --espacamento-xs: 0.25rem;
     --espacamento-sm: 0.5rem;
@@ -66,10 +63,36 @@ body {
     line-height: 1.6;
 }
 
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* centraliza header/main/footer numa coluna de leitura, em vez de deixar
+ * o texto esticar a largura inteira da tela */
+body > header,
+body > main,
+body > footer {
+    width: min(100% - 2rem, var(--largura-conteudo));
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body > header {
+    padding: var(--espacamento-xl) 0 var(--espacamento-lg);
+}
+
 main {
-    width: min(100% - 2rem, var(--content-width));
-    margin: 0 auto;
-    padding: var(--spacing-xl) 0;
+    padding: var(--espacamento-lg) 0 4rem;
+}
+
+main > h2:first-child {
+    margin-top: 0;
+}
+
+p {
+    margin: 0 0 var(--espacamento-md);
+    max-width: 42rem;
 }
 
 /*3: classes retulizaveis
@@ -82,7 +105,16 @@ main {
     border: 1px solid var(--cor-borda-light);
     border-radius: var(--raio-sm);
 
-    background-color: var(--cor-superficie-alt);   
+    background-color: var(--cor-surface);   
+}
+
+.card-hero {
+    text-align: center;
+}
+
+.card-hero > p {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Caixa usada para destacar alguma informação. */
@@ -118,6 +150,11 @@ main {
     text-decoration: none;
 }
 
+.botao:focus-visible {
+    outline: 2px solid var(--cor-link-hover);
+    outline-offset: 2px;
+}
+
 /* 4: seletor de id (se aplica apenas ao index.html no root do projeto) */
 #titulo-principal {
     /*tem que ser uma fonte bem grandona pra chamar a atenção*/
@@ -144,6 +181,7 @@ h1 {
 
 h2 {
     margin-top: var(--espacamento-xl);
+    margin-bottom: var(--espacamento-md);
     padding-bottom: var(--espacamento-xs);
 
     border-bottom: 1px solid var(--cor-borda-light);
@@ -154,10 +192,9 @@ h2 {
 
 h3 {
     margin-top: var(--espacamento-lg);
+    margin-bottom: var(--espacamento-sm);
     font-size: 1.25rem;
 }
-
-
 
 /*
  * 7: Links
@@ -187,10 +224,25 @@ a:active {
  * Isso se aplica principalmente aos <p> dentro dos <div class="card"> dentro de cada arquivo html
  */
 .card > p {
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--espacamento-md);
 }
 
 /*listas + box model*/
+
+/* listas de conteúdo em geral (ex: "Vantagens"/"Desvantagens" nas páginas
+ * de kernel/mcus/rtos/protocolos). Vem ANTES da regra "nav ul" de propósito:
+ * como as duas regras têm a mesma especificidade, a que vier depois no
+ * arquivo é que vence — então "nav ul" (mais abaixo) sobrescreve isso
+ * de propósito só dentro do menu. */
+main ul,
+main ol {
+    margin: 0 0 var(--espacamento-md);
+    padding-left: 1.5rem;
+}
+
+main li {
+    margin-bottom: var(--espacamento-xs);
+}
 
 /* O projeto diz explicitamente para utilizar isso com listas já existents no projeto. Porém eu não tinha nenhuma
  * para não criar algo que não deveria estar lá, decidi apenas alterar o elemento mais próximo disso no projeto.*/
@@ -200,10 +252,74 @@ nav ul {
 
     border: 1px solid var(--cor-borda-light);
     border-radius: var(--raio-sm);
+    background-color: var(--cor-surface);
 
     list-style-type: none;
 }
 
 nav li {
     padding: 0.25rem 0;
+    margin-bottom: 0;
+}
+
+/* 9: formulário de sugestão de verbete */
+fieldset {
+    margin: 0 0 var(--espacamento-lg);
+    padding: var(--espacamento-lg);
+
+    border: 1px solid var(--cor-borda-light);
+    border-radius: var(--raio-md);
+    background-color: var(--cor-superficie-alt);
+}
+
+legend {
+    padding: 0 var(--espacamento-sm);
+    font-weight: 600;
+    color: var(--cor-heading);
+}
+
+form label {
+    display: block;
+    margin: var(--espacamento-md) 0 var(--espacamento-xs);
+    font-weight: 600;
+}
+
+form input,
+form select,
+form textarea {
+    width: 100%;
+    max-width: 24rem;
+    padding: var(--espacamento-xs) var(--espacamento-sm);
+
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio-sm);
+    background-color: var(--cor-surface);
+    color: var(--cor-texto);
+
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+form input[type="number"] {
+    width: 6rem;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: 2px solid var(--cor-link-hover);
+    outline-offset: 2px;
+}
+
+form button,
+form .botao {
+    margin-top: var(--espacamento-md);
+}
+
+footer {
+    margin-top: var(--espacamento-xl);
+    padding-top: var(--espacamento-lg);
+    border-top: 1px solid var(--cor-borda-light);
+    color: var(--cor-texto-muted);
+    font-size: 0.875rem;
 }
