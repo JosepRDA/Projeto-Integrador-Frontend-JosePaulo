@@ -4,13 +4,17 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>I2C</title>
+        <link rel="stylesheet" href="/css/reset.css">
         <link href="/css/style.css" rel="stylesheet">
     </head>
     <body>
         <main>
+            <div class="card">
+                
             <h1>I2C (Inter-Integrated Circuit)</h1>
             <p>I2C é um protocolo de comunicação serial síncrono e half-duplex que usa apenas duas linhas compartilhadas para conectar múltiplos dispositivos, cada um identificado por um endereço próprio. É comum para conectar diversos sensores e módulos ao mesmo microcontrolador sem gastar um conjunto de pinos por dispositivo.</p>
 
+            </div>
             <h2>Funcionamento</h2>
             <h3>Linhas e endereçamento</h3>
             <p>O barramento usa duas linhas em open-drain com resistores de pull-up: SDA (dados) e SCL (clock). Cada dispositivo escravo possui um endereço fixo de 7 bits (ou 10 bits, em uma extensão do padrão). Para iniciar uma transferência, o master gera uma condição de start e envia o endereço do dispositivo desejado seguido de um bit indicando leitura ou escrita.</p>

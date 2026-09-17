@@ -4,13 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Timers e PWM</title>
+        <link rel="stylesheet" href="/css/reset.css">
         <link href="/css/style.css" rel="stylesheet">
     </head>
     <body>
         <main>
-            <h1>Timers e PWM</h1>
-            <p>Timers são periféricos de hardware que contam ciclos de clock de forma independente do fluxo principal de execução da CPU, permitindo medir tempo, gerar interrupções periódicas e produzir sinais sem ocupar o processador em laços de espera.</p>
-
+            <div class="card">
+                 <h1>Timers e PWM</h1>
+                <p>Timers são periféricos de hardware que contam ciclos de clock de forma independente do fluxo principal de execução da CPU, permitindo medir tempo, gerar interrupções periódicas e produzir sinais sem ocupar o processador em laços de espera.</p>               
+            </div>
             <h2>Funcionamento</h2>
             <h3>Contadores e prescalers</h3>
             <p>Um timer é basicamente um registrador que incrementa (ou decrementa) a cada ciclo de clock, ou a cada N ciclos quando passa por um prescaler que divide a frequência de entrada. Ao atingir um valor limite (overflow) ou um valor de comparação configurado, o timer pode gerar uma interrupção ou disparar uma ação automática em hardware.</p>
