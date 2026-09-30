@@ -323,3 +323,74 @@ footer {
     color: var(--cor-texto-muted);
     font-size: 0.875rem;
 }
+
+.cabecalho-principal {
+    display: flex; /* Converte em container Flexbox */
+    justify-content: space-between; /* Distribui logo e nav nas extremidades no eixo principal */
+    align-items: center; /* Centraliza verticalmente no eixo cruzado */
+    padding: 1rem 2rem;
+}
+
+.navegacao {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navegacao ul {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+.navegacao h2 {
+    font-size: 0.85rem;
+    margin: 0 0 0.25rem;
+}
+
+
+.link-nav {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+/* Pseudo-classe de estado: hover (interação de mouse) */
+.link-nav:hover {
+  background-color: #2d3748;
+}
+
+/* Pseudo-classe de estado: focus-visible (navegação acessível por teclado) */
+.link-nav:focus-visible {
+  outline: 2px solid #4299e1;
+  outline-offset: 2px;
+}
+
+.grade-secoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.grade-secoes > .card {
+    margin: 0; /* o gap do grid já espaça, sem somar com a margin antiga do .card */
+    transition: transform 0.2s ease;
+}
+
+.grade-secoes > .card:first-child {
+    border-top: 4px solid var(--cor-link);
+}
+
+.grade-secoes > .card:last-child {
+    border-top: 4px solid var(--cor-link);
+}
+
+/* transform em vez de width/height: não dispara reflow */
+.grade-secoes > .card:hover {
+    transform: translateY(-4px);
+}
