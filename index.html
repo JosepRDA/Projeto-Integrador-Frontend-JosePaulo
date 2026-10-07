@@ -8,30 +8,31 @@
         <link href="/css/style.css" rel="stylesheet">
     </head>
     <body>
-        <img src="assets/images/c-plus-plus-logo.jpg" alt="Ícone da linguagem C++" width="100" height="100">
-        <div class="card card-hero"> 
-
-        <h1 id="titulo-principal">Embedded Wiki</h1>
-        <p>Desenvolvimento de baixo nivel e sistemas embarcados</p>
-
-        </div>
-
-        <header>
-            <nav>
-                <ul>
-                    <h2>Sistemas Operacionais</h2>
-                    <li><a href="kernel/">Kernel/OS Dev</a></li>
-                    <li><a href="rtos/">RTOS</a></li>
-                </ul>
-                <ul>
-                    <h2>Hardware</h2>
-                    <li><a href="mcus/">Microcontroladores</a></li>
-                    <li><a href="protocolos/">Protocolos</a></li>
-                </ul>
-            </nav>
-        </header>
 
         <main>
+            <!-- <img src="assets/images/c-plus-plus-logo.jpg" alt="Ícone da linguagem C++" width="100" height="100"> -->
+            <div class="card card-hero">
+                <h1 id="titulo-principal">Embedded Wiki</h1>
+                <p>Desenvolvimento de baixo nivel e sistemas embarcados</p>
+            </div>
+
+            <div class="grade-secoes">
+                <div class="card">
+                    <h2>Sistemas Operacionais</h2>
+                    <ul>
+                        <li><a href="kernel/">Kernel/OS Dev</a></li>
+                        <li><a href="rtos/">RTOS</a></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h2>Hardware</h2>
+                    <ul>
+                        <li><a href="mcus/">Microcontroladores</a></li>
+                        <li><a href="protocolos/">Protocolos</a></li>
+                    </ul>
+                </div>
+            </div>
+
             <section id="sugerir">
                 <h2>Sugerir um novo verbete</h2>
                 <form>
@@ -69,11 +70,12 @@
                             <textarea id="descricao" name="descricao" rows="4"></textarea>
                         </div>
 
-                        <button type="submit">Enviar sugestão</button>
+                        <button class="botao" type="submit">Enviar sugestão</button>
                     </fieldset>
                 </form>
             </section>
         </main>
+
         <footer>
             <p><a href="https://osdev.wiki">OSDev.wiki</a> - Inspiracao para o projeto</p>
             <p>Embedded Wiki — Projeto Integrador, Desenvolvimento Front-end para Web.</p>
